@@ -4,11 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build:posts": "node scripts/build-posts.js",
+    "build": "node scripts/build-posts.js && tsc",
     "watch": "tsc --watch",
-    "dev": "tsc --watch"
+    "dev": "node scripts/build-posts.js && tsc --watch"
   },
   "devDependencies": {
     "typescript": "~6.0.2"
+  },
+  "dependencies": {
+    "marked": "^18.0.12"
   }
 }

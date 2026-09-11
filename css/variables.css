@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Entre Bits e Ideias - Sistema de Cores e Variáveis (Tema Claro & Escuro)
+   Idealizado para leitura agradável e sem fadiga visual.
+   ========================================================================== */
+
+:root {
+  /* --- Paleta Base (Cores Primitivas) --- */
+  --palette-cream-base: #F7F4EF;      /* Fundo suave 60% */
+  --palette-cream-surface: #EFEAE1;   /* Superfícies secundárias */
+  --palette-cream-elevated: #FFFFFF;  /* Cards/destaques elevados */
+
+  --palette-graphite-base: #2C2A29;   /* Texto Principal 30% */
+  --palette-graphite-muted: #5F5B57;  /* Textos secundários/metadados */
+  --palette-graphite-faint: #8E8883;  /* Textos terciários/legendas */
+
+  --palette-caramel: #8C6D53;         /* Cor secundária/detalhes */
+  --palette-caramel-light: #A68A72;   /* Variação mais clara para dark mode */
+  --palette-caramel-dark: #6E533E;    /* Variação mais escura para hover */
+
+  --palette-blue-calm: #3B6E8C;       /* Destaque/Ação 10% (Azul calmo) */
+  --palette-blue-light: #5A96BC;      /* Azul clareado para dark mode */
+  --palette-blue-dark: #2A5168;       /* Azul escurecido para hover */
+
+  --palette-bordeaux: #8C3B3B;        /* Destaque alternativo (Bordô) */
+  --palette-bordeaux-light: #B35959;   /* Bordô clareado para dark mode */
+  --palette-bordeaux-dark: #6C2B2B;    /* Bordô escurecido para hover */
+
+  /* --- Tema Claro (Padrão) --- */
+  /* Fundo (60%) */
+  --bg-primary: var(--palette-cream-base);
+  --bg-secondary: var(--palette-cream-surface);
+  --bg-surface: var(--palette-cream-elevated);
+
+  /* Texto Principal (30%) */
+  --text-primary: var(--palette-graphite-base);
+  --text-secondary: var(--palette-graphite-muted);
+  --text-muted: var(--palette-graphite-faint);
+
+  /* Secundária / Detalhes (Bordas, ícones, rodapé) */
+  --color-secondary: var(--palette-caramel);
+  --color-secondary-hover: var(--palette-caramel-dark);
+  --border-color: rgba(140, 109, 83, 0.25);
+  --border-color-strong: var(--palette-caramel);
+  --divider-color: rgba(44, 42, 41, 0.1);
+
+  /* Destaque / Ação (10%) (Botões de clique, links importantes) */
+  --color-accent: var(--palette-blue-calm);
+  --color-accent-hover: var(--palette-blue-dark);
+  --color-accent-contrast: #FFFFFF;
+
+  /* Destaque Alternativo (Bordô para ênfases especiais) */
+  --color-accent-alt: var(--palette-bordeaux);
+  --color-accent-alt-hover: var(--palette-bordeaux-dark);
+  --color-accent-alt-contrast: #FFFFFF;
+
+  /* Efeitos e Estados de Leitura */
+  --selection-bg: rgba(59, 110, 140, 0.2);
+  --selection-text: var(--palette-graphite-base);
+  --focus-ring: rgba(59, 110, 140, 0.4);
+  --card-shadow: 0 4px 16px rgba(44, 42, 41, 0.06);
+
+  color-scheme: light;
+}
+
+/* --- Tema Escuro (Ativado via [data-theme="dark"] ou classe .dark) --- */
+:root[data-theme="dark"],
+.dark {
+  /* Fundo (60%): grafite escuro acolhedor, evitando preto puro (#000000) */
+  --bg-primary: #1A1918;
+  --bg-secondary: #22201F;
+  --bg-surface: #2C2A29;
+
+  /* Texto Principal (30%): marfim suave para conforto e zero fadiga visual */
+  --text-primary: #F7F4EF;
+  --text-secondary: #C7BFB6;
+  --text-muted: #8E877F;
+
+  /* Secundária / Detalhes: tom caramelo balanceado para contraste */
+  --color-secondary: var(--palette-caramel-light);
+  --color-secondary-hover: #C5AB94;
+  --border-color: rgba(166, 138, 114, 0.25);
+  --border-color-strong: var(--palette-caramel-light);
+  --divider-color: rgba(247, 244, 239, 0.1);
+
+  /* Destaque / Ação (10%): azul calmo com luminosidade adequada para leitura noturna */
+  --color-accent: var(--palette-blue-light);
+  --color-accent-hover: #77AECF;
+  --color-accent-contrast: #1A1918;
+
+  /* Destaque Alternativo (Bordô suavizado) */
+  --color-accent-alt: var(--palette-bordeaux-light);
+  --color-accent-alt-hover: #C87575;
+  --color-accent-alt-contrast: #1A1918;
+
+  /* Efeitos e Estados de Leitura */
+  --selection-bg: rgba(90, 150, 188, 0.3);
+  --selection-text: #F7F4EF;
+  --focus-ring: rgba(90, 150, 188, 0.5);
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+  color-scheme: dark;
+}
+
+/* --- Preferência do Sistema Operacional (Fallback automático) --- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-primary: #1A1918;
+    --bg-secondary: #22201F;
+    --bg-surface: #2C2A29;
+
+    --text-primary: #F7F4EF;
+    --text-secondary: #C7BFB6;
+    --text-muted: #8E877F;
+
+    --color-secondary: var(--palette-caramel-light);
+    --color-secondary-hover: #C5AB94;
+    --border-color: rgba(166, 138, 114, 0.25);
+    --border-color-strong: var(--palette-caramel-light);
+    --divider-color: rgba(247, 244, 239, 0.1);
+
+    --color-accent: var(--palette-blue-light);
+    --color-accent-hover: #77AECF;
+    --color-accent-contrast: #1A1918;
+
+    --color-accent-alt: var(--palette-bordeaux-light);
+    --color-accent-alt-hover: #C87575;
+    --color-accent-alt-contrast: #1A1918;
+
+    --selection-bg: rgba(90, 150, 188, 0.3);
+    --selection-text: #F7F4EF;
+    --focus-ring: rgba(90, 150, 188, 0.5);
+    --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+    color-scheme: dark;
+  }
+}
