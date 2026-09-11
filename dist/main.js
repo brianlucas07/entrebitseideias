@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const post = allPosts.find((p) => p.slug === slug);
         if (!post)
             return renderList();
-        fetch(post.file)
+        fetch(`${post.file}?v=1.0.0`)
             .then((res) => res.text())
             .then((markdown) => {
             const cleanContent = markdown.replace(/^---[\s\S]*?---\r?\n/, '');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderList();
         }
     }
-    fetch('./posts.json')
+    fetch('./posts.json?v=1.0.0')
         .then((res) => res.json())
         .then((posts) => {
         allPosts = posts;
