@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('')
   }
 
+
   function openPost(slug: string) {
     const post = allPosts.find((p) => p.slug === slug)
     if (!post) return renderList()
