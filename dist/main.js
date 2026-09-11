@@ -29,7 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!post)
             return renderList();
         fetch(`${post.file}?v=1.0.0`)
-            .then((res) => res.text())
+            .then((res) => {
+            if (!res.ok)
+                throw new Error(`HTTP ${res.status}`);
+            return res.text();
+        })
             .then((markdown) => {
             const cleanContent = markdown.replace(/^---[\s\S]*?---\r?\n/, '');
             const html = marked.parse(cleanContent);
