@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const post = allPosts.find((p) => p.slug === slug)
     if (!post) return renderList()
 
-    fetch(`${post.file}?v=1.0.0`)
+    fetch(`${post.file}?v=1.0.1`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         return res.text()
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  fetch('./posts.json?v=1.0.0')
+  fetch('./posts.json?v=1.0.1')
     .then((res) => res.json())
     .then((posts) => {
       allPosts = posts
