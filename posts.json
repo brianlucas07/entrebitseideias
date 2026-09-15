@@ -1,5 +1,12 @@
 [
   {
+    "slug": "apresentacao-havens",
+    "title": "Entenda sobre meu ecossistema Haven",
+    "date": "2026-09-14",
+    "description": "O ponto de partida para entender meus SaaS HavenNote e HavenTeams.",
+    "file": "posts/apresentacao-havens.md"
+  },
+  {
     "slug": "bem-vindo",
     "title": "Bem-vindo ao Entre Bits e Ideias",
     "date": "2026-09-11",
